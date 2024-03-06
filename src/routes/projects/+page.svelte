@@ -1,7 +1,8 @@
+<script>
+    import projects from '$lib/projects.json';
+</script>
+
 <svelte:head>
-    <script>
-        import projects from '$lib/projects.json';
-    </script>
 	<title>projects</title>
 </svelte:head>
 
