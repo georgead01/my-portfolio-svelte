@@ -8,14 +8,14 @@
     <a href="assignments/A2/index.html" class="project_link">
     <article>
         <h2>exploratory single-family zoning data visualization</h2>
-        <img src="assignments/A2/imgs/housing.jpeg" alt="">
+        <img src="housing.jpeg" alt="">
         <p>"Urban planners have increasingly demonstrated how the 'yard and picket fence' style of US housing has negative effects on housing affordability, equity, and transportation, yet single-family zoning persists. Which communities in the Boston area have the most exclusionary zoning? Where are there opportunities for change?" -course website</p>
     </article>
     </a>
     <a href="assignments/A3/index.html" class="project_link">
     <article>
         <h2>how did the population composition in america change over the 20th century</h2>
-        <img src="assignments/A3/imgs/main_pic.png" alt="">
+        <img src="main_pic.png" alt="">
         <p>Quod magni, impedit voluptas nemo animi possimus reiciendis ex repellendus ad accusamus beatae illum, ipsam voluptate dolorum, ab in dicta fuga. Eum deserunt perspiciatis harum molestiae? Voluptate perferendis iure corporis?</p>
     </article>
     </a>
