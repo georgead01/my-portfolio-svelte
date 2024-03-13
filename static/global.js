@@ -52,28 +52,16 @@ for (let p of pages) {
     nav.appendChild(a);
 }
 
-// add color scheme control
-document.body.insertAdjacentHTML("afterbegin", `
-	<label class="color-scheme">
-		Theme:
-		<select>
-        <option value="light dark">default</option>
-        <option value="light">light</option>
-        <option value="dark">dark</option>
-		</select>
-	</label>`
-);
+// let select = document.querySelector('.color-scheme');
+// select.addEventListener("input", function (event) {
+// 	console.log("color scheme changed to", event.target.value);
+//     document.documentElement.style.setProperty("color-scheme", event.target.value);
+//     localStorage.colorScheme = event.target.value;
+// });
 
-let select = document.querySelector('.color-scheme');
-select.addEventListener("input", function (event) {
-	console.log("color scheme changed to", event.target.value);
-    document.documentElement.style.setProperty("color-scheme", event.target.value);
-    localStorage.colorScheme = event.target.value;
-});
-
-// update color scheme
-if ("colorScheme" in localStorage) {
-    let scheme = localStorage.colorScheme;
-    select.value = scheme;
-    document.documentElement.style.setProperty("color-scheme", scheme);
-}
+// // update color scheme
+// if ("colorScheme" in localStorage) {
+//     let scheme = localStorage.colorScheme;
+//     select.value = scheme;
+//     document.documentElement.style.setProperty("color-scheme", scheme);
+// }

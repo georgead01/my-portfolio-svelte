@@ -3,14 +3,6 @@ html {
   color-scheme: light dark;
 }
 
-.color-scheme {
-  position: absolute;
-  top: 1rem;
-  right: 2rem;
-  font-size: 80%;
-  font-family: inherit;
-}
-
 /* body styling */
 body {
   /* Set line height to 1.5 times the font size
