@@ -2,61 +2,73 @@
     {
         "title": "exploratory single-family zoning data visualization",
         "image": "images/housing.jpeg",
+        "year": "2024",
         "description": "Urban planners have increasingly demonstrated how the 'yard and picket fence' style of US housing has negative effects on housing affordability, equity, and transportation, yet single-family zoning persists. Which communities in the Boston area have the most exclusionary zoning? Where are there opportunities for change? -course website"
     },
     {
         "title": "how did the population composition in america change over the 20th century",
         "image": "images/main_pic.png",
+        "year": "2024",
         "description": "Quod magni, impedit voluptas nemo animi possimus reiciendis ex repellendus ad accusamus beatae illum, ipsam voluptate dolorum, ab in dicta fuga. Eum deserunt perspiciatis harum molestiae? Voluptate perferendis iure corporis?"
     },
     {
         "title": "does CO2 emmisions level lead to global warming?",
         "image": "images/a4/main_pic.jpeg",
+        "year": "2024",
         "description": "Labore iure impedit itaque hic illum omnis ut, possimus minima odio quis magni eum assumenda earum ea magnam nesciunt in pariatur? Quis nisi autem eligendi sunt totam tempore iure harum!"
     },
     {
         "title": "Mollitia expedita officia culpa.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2024",
         "description": "Unde, aut, quos corporis adipisci, provident voluptatem dolore nobis at eius atque magnam earum esse reprehenderit optio. Autem unde dolore voluptas a blanditiis, consequuntur numquam aperiam eius, itaque, perferendis praesentium?"
     },
     {
         "title": "Nihil quis harum vel?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2023",
         "description": "Dicta incidunt tenetur temporibus, odio assumenda natus adipisci explicabo quos architecto accusantium eveniet odit facere asperiores consectetur laboriosam hic inventore dolorem repellat minus quis, tempora eos et reiciendis ipsa. Explicabo."
     },
     {
         "title": "Explicabo facilis culpa corrupti?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2023",
         "description": "Eius, mollitia laudantium cum placeat dolorum, optio nobis, aut maiores illo sit voluptatum eos saepe commodi qui! Modi, consequatur. Doloribus aspernatur aut eveniet minima quibusdam laudantium quaerat tempore voluptates rerum?"
     },
     {
         "title": "Adipisci, error. Fugit, in!",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2022",
         "description": "Vitae expedita ex sapiente ducimus laboriosam vero facilis deleniti ullam tenetur delectus inventore, tempora nobis quo voluptate? Unde delectus quidem ratione, quam fugit eos aliquid alias eveniet, similique necessitatibus voluptatum?"
     },
     {
         "title": "Ratione alias aperiam amet?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2021",
         "description": "Saepe delectus ipsam quas consectetur tempora. Ipsum in perferendis similique ab explicabo? Quibusdam recusandae animi explicabo, laudantium repellendus magni eum molestiae ducimus eveniet ratione vel sapiente perferendis facere dolore similique?"
     },
     {
         "title": "Dicta suscipit nesciunt pariatur.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2021",
         "description": "Quia obcaecati repellendus sapiente exercitationem nobis nihil quibusdam veniam explicabo, quam nostrum, magnam qui molestiae neque, veritatis modi! Quo aspernatur harum doloribus deleniti! Rem expedita animi adipisci. Harum, quia autem!"
     },
     {
         "title": "Dignissimos veritatis recusandae sunt.",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2021",
         "description": "Natus, numquam quod eum, sunt quidem odio delectus culpa rerum voluptatibus facilis maiores explicabo consequuntur. Neque impedit eos at quas veniam officiis voluptates corrupti id incidunt, deserunt modi eaque corporis."
     },
     {
         "title": "Error repellendus officia blanditiis?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2020",
         "description": "Blanditiis magnam autem ratione, porro cumque incidunt officia in dolorem voluptatibus adipisci, quibusdam nisi. Temporibus fugit est vel alias, eligendi nemo facilis modi placeat voluptatibus quaerat tenetur corrupti eveniet eos."
     },
     {
         "title": "Quidem dolor incidunt repudiandae?",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "year": "2020",
         "description": "Temporibus necessitatibus dicta aliquam quae delectus, provident explicabo corrupti, voluptas eum nobis accusamus, dolorum sunt hic aliquid! Beatae quasi recusandae, nisi ducimus delectus ea exercitationem iste harum debitis adipisci nostrum?"
     }
 ]
