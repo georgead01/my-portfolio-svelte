@@ -24,6 +24,7 @@ let pages = [
 	{url: "projects", title: "projects"},
 	{url: "resume", title: "resume"},
     {url: "contact", title: "contact"},
+    {url: "meta", title: "meta"},
     {url: "https://github.com/georgead01", title: "github"}
 ];
 
