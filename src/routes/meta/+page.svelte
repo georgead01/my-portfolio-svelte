@@ -3,6 +3,8 @@
 
     import { onMount } from "svelte";
 
+    import Pie from "$lib/Pie.svelte";
+
     let data = [];
     let commits = [];
     let max_depth = 0;
@@ -27,6 +29,9 @@
     $: hoveredCommit = commits[hoveredIndex] ?? {};
 
     let cursor = {x: 0, y: 0};
+    let brushSelection = null;
+    let languageBreakdown = [];
+    let pieData = [];
 
     $: {
         d3.select(xAxis).call(d3.axisBottom(xScale));
@@ -34,6 +39,35 @@
         d3.select(yAxis).call(d3.axisLeft(yScale).tickFormat(d => String(d % 24).padStart(2, "0") + ":00"));
         d3.select(yAxisGridlines).call(d3.axisLeft(yScale).tickFormat("").tickSize(-usableArea.width));
     }
+
+    function brushed (evt) {
+        brushSelection = evt.selection;
+        console.log(selectedLines);
+        console.log(languageBreakdown);
+    }
+
+    function isCommitSelected (commit) {
+        if (!brushSelection){
+            return false;
+        }
+        let min = {x: brushSelection[0][0], y: brushSelection[0][1]};
+        let max = {x: brushSelection[1][0], y: brushSelection[1][1]};
+        let x = xScale(commit.date);
+        let y = yScale(commit.hourFrac);
+        return x >= min.x && x <= max.x && y >= min.y && y <= max.y;
+    }
+
+    let svg;
+    $: {
+        d3.select(svg).call(d3.brush());
+        d3.select(svg).selectAll(".dots, .overlay ~ *").raise();
+        d3.select(svg).call(d3.brush().on("start brush end", brushed));
+    }
+
+    $: selectedCommits = brushSelection ? commits.filter(isCommitSelected) : [];
+    $: hasSelection = brushSelection && selectedCommits.length > 0;
+    $: selectedLines = (hasSelection ? selectedCommits : commits).flatMap(d => d.lines);
+    $: languageBreakdown = d3.rollup(selectedLines, (v) => v.length, (d) => d.type);
 
     onMount(async () => {
         data = await d3.csv("loc.csv", row => ({
@@ -113,6 +147,10 @@
 
     }
 
+    .selected {
+        fill: red;
+    }
+
     dl {
         background-color: oklch(100% 0% 0 / 80%);
         box-shadow: 3px 3px 5px lightgrey;
@@ -156,8 +194,8 @@
 </dl>
 
 <h2>commits by time of day</h2>
-{JSON.stringify(cursor, null, "\t")}
-<svg viewBox="0 0 {width} {height}">
+<!-- {JSON.stringify(cursor, null, "\t")} -->
+<svg viewBox="0 0 {width} {height}" bind:this={svg}>
     <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
     <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
     <g class="gridlines" transform="translate({usableArea.left}, 0)" bind:this={yAxisGridlines} />
@@ -173,10 +211,21 @@
                     cursor = {x: evt.x, y: evt.y};
                 }}
                 on:mouseleave={evt => hoveredIndex = -1}
+                class:selected = {isCommitSelected(commit)}
             />
         {/each}
     </g>
 </svg>
+<p>{hasSelection ? selectedCommits.length : "No"} commits selected</p>
+
+<dl>
+    <Pie data={Array.from(languageBreakdown).map(([language, lines]) => ({"label":language, "value":lines}))}/>
+    {#each languageBreakdown as [language, lines] }
+        <!-- Display stats here -->
+        <dt>{language}</dt>
+        <dd>{lines} ({100*lines/selectedLines.length}%)</dd>
+    {/each}
+</dl>
 
 <dl id="commit-tooltip" class="info tooltip" hidden={hoveredIndex === -1} style="top: {cursor.y}px; left: {cursor.x}px">
 	<dt>Commit</dt>
