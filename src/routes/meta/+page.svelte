@@ -23,6 +23,10 @@
     let yScale = d3.scaleLinear([0, 24],[usableArea.bottom, usableArea.top]);
     let xAxis, yAxis;
     let yAxisGridlines;
+    let hoveredIndex = -1;
+    $: hoveredCommit = commits[hoveredIndex] ?? {};
+
+    let cursor = {x: 0, y: 0};
 
     $: {
         d3.select(xAxis).call(d3.axisBottom(xScale));
@@ -92,9 +96,39 @@
 <style>
 	svg {
 		overflow: visible;
+        transform-origin: center;
+        transform-box: fill-box;
 	}
     .gridlines {
         stroke-opacity: .2;
+    }
+    circle {
+        transition: 200ms;
+
+        &:hover {
+            transform: scale(1.5);
+        }
+        transform-origin: center;
+        transform-box: fill-box;
+
+    }
+
+    dl {
+        background-color: oklch(100% 0% 0 / 80%);
+        box-shadow: 3px 3px 5px lightgrey;
+        backdrop-filter: blur(2.5px);
+    }
+
+    dl.info {
+        position: fixed;
+        /* ... other styles ... */
+        transition-duration: 500ms;
+        transition-property: opacity, visibility;
+
+        &[hidden]:not(:hover, :focus-within) {
+            opacity: 0;
+            visibility: hidden;
+        }
     }
 </style>
 
@@ -122,6 +156,7 @@
 </dl>
 
 <h2>commits by time of day</h2>
+{JSON.stringify(cursor, null, "\t")}
 <svg viewBox="0 0 {width} {height}">
     <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
     <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
@@ -133,7 +168,32 @@
                 cy={ yScale(commit.hourFrac) }
                 r="5"
                 fill="steelblue"
+                on:mouseenter={evt => {
+                    hoveredIndex = index;
+                    cursor = {x: evt.x, y: evt.y};
+                }}
+                on:mouseleave={evt => hoveredIndex = -1}
             />
         {/each}
     </g>
 </svg>
+
+<dl id="commit-tooltip" class="info tooltip" hidden={hoveredIndex === -1} style="top: {cursor.y}px; left: {cursor.x}px">
+	<dt>Commit</dt>
+	<dd><a href="{ hoveredCommit.url }" target="_blank">{ hoveredCommit.id }</a></dd>
+
+    <dt>Author</dt>
+    <dd>{ hoveredCommit.author }</dd>
+
+	<dt>Date</dt>
+	<dd>{ hoveredCommit.datetime?.toLocaleString("en", {date: "full"}) }</dd>
+
+    <dt>Time</dt>
+    <dd>{hoveredCommit.time}</dd>
+    
+    <dt>Lines</dt>
+    <dd>{ hoveredCommit.totalLines }</dd>
+
+	<!-- Add: Time, author, lines edited -->
+</dl>
+
